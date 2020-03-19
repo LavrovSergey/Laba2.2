@@ -1,10 +1,7 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include <conio.h>
 #include "windows.h"
 using namespace std;
-
-
 
 struct Node {
 	char inf[8];
@@ -18,7 +15,7 @@ struct List {
 	Node* tail = NULL;
 	void creat(int n) {
 		Node* cur = new Node;
-		cout << "Заполните коньюнкции переменными a,b,c,d. !-перед переменной означает НЕ "<<endl;
+		cout << "Заполните дизъюнкции переменными a,b,c,d. !-перед переменной означает НЕ "<<endl;
 		cin >> cur->inf;
 		cur->prev = NULL;
 		cur->next = NULL;
@@ -70,7 +67,7 @@ struct List {
 				else(d = 0);
 			}
 			else if (strstr(cur->inf, "dd")) { dd = 1; }
-			if ((a == 1 && aa==1) ||( b == 1 && bb==1) || (c == 1 && cc==1)|| (d == 1 && dd==1)) 
+			if ((a == 1 && aa==1) || ( b == 1 && bb==1) || (c == 1 && cc==1)|| (d == 1 && dd==1)) 
 			{ 
 				temp = 1;
 			}
@@ -80,16 +77,14 @@ struct List {
 			if (temp == 0) { otv = 0; }
 			cur = cur->next;
 		}
-		
 		return otv;
 	}
 };
-
+  
 
 
 	int main()
 	{
-		int otvet;
 		List knf;
 		int n;
 		cout << "Количество конъюнкций: " << endl;
@@ -102,8 +97,7 @@ struct List {
 				for (int c = 0; c <= 1; c++) {
 					for (int d = 0; d <= 1; d++)
 					{
-						otvet = knf.otvet(a, b, c, d);
-						cout << a << " " << b << " " << c << " " << d << " = " <<otvet << endl;
+						cout << a << " " << b << " " << c << " " << d << " = " << knf.otvet(a, b, c, d) << endl;
 					}
 				}
 			}
